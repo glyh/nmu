@@ -13,6 +13,9 @@ class NeteaseService(QuitableService, aobject):
         self.uuid: str = response["unikey"]
         return self
 
+    def get_answer(self) -> int:
+        return 42
+
     def get_login_url(self) -> str:
         return f"https://music.163.com/login?codekey={self.uuid}"
 

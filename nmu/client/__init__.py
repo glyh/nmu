@@ -24,13 +24,11 @@ class ListViewExample(App):
 
     async def init_login(self) -> None:
         music_list: ListView = self.query_one('#music_list')
-        # label = str(self.service.get_answer())
-        # music_list.append(ListItem(Label(label)))
-        music_list.append(ListItem(Label("hey")))
+        label = str(self.service.get_answer())
+        music_list.append(ListItem(Label(label)))
 
     def on_mount(self) -> None:
-        pass
-        # self.run_worker(self.init_login())
+        self.run_worker(self.init_login())
 
     def compose(self) -> ComposeResult:
         yield ListView(id='music_list')
@@ -48,7 +46,7 @@ class ListViewExample(App):
 
 def run():
     config = Config()
-    service: QuitableService = rpcclient.ServerProxy(f"http://{config.server_address}:{config.server_port}/")
+    service: NeteaseService = rpcclient.ServerProxy(f"http://{config.server_address}:{config.server_port}/")
 
     def exit_handler():
         print(service.close_server())
