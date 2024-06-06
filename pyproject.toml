@@ -9,7 +9,7 @@ readme = "README.md"
 python = "^3.11"
 textual = "^0.56.4"
 qrterm = { git = "https://github.com/glyh/qrterm.git", rev = "20e56ab" }
-pyncm-async = "^0.1.1"
+pyncm = "^1.6.15"
 
 [tool.poetry.scripts]
 nmu = "nmu.__main__:sync_entry"
